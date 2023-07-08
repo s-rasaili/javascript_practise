@@ -1,0 +1,105 @@
+<html>
+
+<head>
+	<style>
+		.result1 {
+			font-size: 30px;
+			font-weight: bold;
+			color: red;
+		}
+
+		hr {
+			border: 1px dashed black
+		}
+	</style>
+</head>
+
+<body>
+	<!--number addition-->
+	<form>
+		<label>First Number:</label>
+		<input type="number" onfocus="this.value=''" id="firstValue">
+		<label>Second Number:</label>
+		<input type="number" onfocus="this.value=''" id="secondValue">
+		<button type="button" onclick="getValue1()">Submit</button>
+		<!--<input type="number" id="thirdValue">-->
+	</form>
+	<div class="result1" id="First_result"></div>
+	<hr>
+
+	<!--user is eligible for vote or not-->
+	<form>
+		<label>Select your age:</label>
+		<input type="date" onfocus="this.value=''" id="birthdate">
+		<button type="button" onclick="calculateAge()">Submit</button>
+	</form>
+	<div class="result1" id="Second_result"></div>
+	<hr>
+
+	<!--password matching-->
+	<form>
+		<label>Enter the password</label>
+		<input type="password" onfocus="this.value=''" id="pass_one">
+		<label>Confirm the password</label>
+		<input type="password" onfocus="this.value=''" id="pass_two">
+		<button type="button" onclick="result3()">Submit</button>
+	</form>
+	<div class="result1" id="third_result"></div>
+	<hr>
+
+	<form>
+		<label>Enter the number for table</label>
+		<input type="number" onfocus="this.value=''" id="num_new">
+		<button type="button" onclick="result4()">Show</button>
+	</form>
+	<div class="result1" id="userTable"></div>
+
+	<script>
+		//addition program of two variable
+		function getValue1() {
+			var a = parseInt(document.getElementById('firstValue').value);
+			var b = parseInt(document.getElementById('secondValue').value);
+			var c = a + b;
+			document.getElementById("First_result").innerHTML = " Addition is " + c;
+		}
+
+		//checking if the person is eligible for voting or not
+		function calculateAge() {
+			//age calculation
+			var birthdate = document.getElementById('birthdate').value;
+			var today = new Date();
+			var birthdateObj = new Date(birthdate);
+			var age = Number(today.getFullYear() - birthdateObj.getFullYear());
+
+			if (age => 18) {
+				document.getElementById("Second_result").innerHTML = "Your Age is " + age + " Yrs & You are eligible ";
+			}
+			else {
+				document.getElementById("Second_result").innerHTML = "Your Age is " + age + " Yrs & You are not eligible ";
+			}
+		}
+
+		//program for password matching
+		function result3() {
+			var pass_one = document.getElementById("pass_one").value;
+			var pass_two = document.getElementById("pass_two").value;
+			if (pass_one == pass_two) {
+				document.getElementById("third_result").innerHTML = "Password Matched"
+			}
+			else {
+				document.getElementById("third_result").innerHTML = "Password not Matched"
+			}
+		}
+
+		//program for table making
+		function result4() {
+			var num1 = parseInt(document.getElementById("num_new").value);
+			for (var i = 1; i < 11; i++) {
+				//document.getElementById("userTable").innerHTML = num1 + "X" + i + "=" + num1*[i]  + "<br>";
+				document.write(num1 + "X" + i + "=" + num1 * [i] + "<br>");
+			}
+		}
+	</script>
+</body>
+
+</html>
