@@ -71,7 +71,7 @@
 			var birthdateObj = new Date(birthdate);
 			var age = Number(today.getFullYear() - birthdateObj.getFullYear());
 
-			if (age > 17) {
+			if (age >= 18) {
 				document.getElementById("Second_result").innerHTML = "Your Age is " + age + " Yrs & You are eligible ";
 			}
 			else {
